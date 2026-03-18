@@ -1,6 +1,6 @@
 # OpenClaw Adapter — Conversation Observer 👁️
 
-Automatic conversation compression for the agent-memory system, packaged as an OpenClaw hook.
+Automatic conversation compression for the moonshine system, packaged as an OpenClaw hook.
 
 ## What It Does
 
@@ -34,7 +34,7 @@ message:received / message:sent hooks
    cp -r adapters/openclaw/ ~/your-workspace/hooks/conversation-observer/
    ```
 
-2. Set environment variables (optional — defaults work if agent-memory is in your workspace root):
+2. Set environment variables (optional — defaults work if moonshine is in your workspace root):
    ```bash
    export OBSERVER_DB="./observations.db"
    export OBSERVER_SCRIPT="./observer/observe.js"

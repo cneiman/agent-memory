@@ -1,6 +1,8 @@
-# agent-memory
+# 🥃 moonshine
 
-**A 3-tier memory system that gives AI agents durable, searchable, self-compressing memory.**
+**Locally distilled memory for AI agents.**
+
+A 3-tier memory system that gives AI agents durable, searchable, self-compressing memory.
 
 Works with Claude Code, OpenClaw, Cursor, or anything MCP-compatible. SQLite-based, runs locally, no cloud dependency.
 
@@ -39,7 +41,7 @@ AI agents forget everything between sessions. The solutions out there are either
 - **Too complex** — Postgres + pgvector + Redis stacks that nobody will self-host for a personal agent.
 - **Too proprietary** — locked into one platform with no portability.
 
-agent-memory is the middle ground. It gives your agent a real memory system — searchable, self-compressing, with a knowledge graph — that runs on SQLite and works with any MCP-compatible tool.
+moonshine is the middle ground. It gives your agent a real memory system — searchable, self-compressing, with a knowledge graph — that runs on SQLite and works with any MCP-compatible tool.
 
 The key insight: **the model shouldn't have to choose to remember things.** Every conversation is captured automatically. An observer pipeline compresses it into structured observations. A knowledge graph tracks entities and relationships. The agent gets relevant context without replaying entire transcripts.
 
@@ -93,8 +95,8 @@ The observer runs async, after the response is sent. Memory maintenance never ad
 
 ```bash
 # 1. Clone
-git clone https://github.com/cneiman/agent-memory
-cd agent-memory
+git clone https://github.com/cneiman/moonshine
+cd moonshine
 
 # 2. Install
 ./install.sh
@@ -146,7 +148,7 @@ Memory types: `event`, `lesson`, `person`, `behavior`, `project`, `insight`, `de
 ## CLI
 
 ```bash
-cd agent-memory/core
+cd moonshine/core
 
 # Add a memory
 ./mem add "Switched to SQLite" --type decision --content "Moved from JSON to SQLite for FTS5 support" --importance 4
@@ -178,7 +180,7 @@ Spreading activation traverses the graph from seed entities, decaying signal wit
 
 ## How It Compares
 
-| Feature | Vanilla MEMORY.md | Mem0 | LangMem | agent-memory |
+| Feature | Vanilla MEMORY.md | Mem0 | LangMem | moonshine |
 |---------|-------------------|------|---------|--------------|
 | Storage | Markdown file | Cloud API | Postgres | SQLite (local) |
 | Search | Keyword/grep | Semantic | Semantic | FTS5 + Semantic + Graph |
@@ -209,7 +211,7 @@ Adding a new adapter is straightforward — implement the hook interface for you
 ## Project Structure
 
 ```
-agent-memory/
+moonshine/
 ├── core/               # MCP server, CLI, SQLite schema
 │   ├── mcp-server.py   # 9 MCP tools over stdio
 │   ├── mem             # CLI for memory operations

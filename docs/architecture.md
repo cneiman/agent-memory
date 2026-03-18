@@ -1,6 +1,6 @@
 # Architecture Deep Dive
 
-This document explains why agent-memory is structured the way it is — the 3-tier model, the observer pipeline, the knowledge graph, and how they interact during a session.
+This document explains why moonshine is structured the way it is — the 3-tier model, the observer pipeline, the knowledge graph, and how they interact during a session.
 
 ---
 

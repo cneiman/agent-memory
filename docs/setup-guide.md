@@ -1,6 +1,6 @@
 # Setup Guide
 
-Get agent-memory running with your platform in ~5 minutes.
+Get moonshine running with your platform in ~5 minutes.
 
 ---
 
@@ -28,8 +28,8 @@ ollama pull nomic-embed-text
 
 ```bash
 # Clone
-git clone https://github.com/cneiman/agent-memory
-cd agent-memory
+git clone https://github.com/cneiman/moonshine
+cd moonshine
 
 # Run installer
 ./install.sh
@@ -87,9 +87,9 @@ Add to your OpenClaw config (`~/.openclaw/openclaw.json`) or workspace `.mcp.jso
 ```json
 {
   "mcpServers": {
-    "agent-memory": {
+    "moonshine": {
       "command": "python3",
-      "args": ["/path/to/agent-memory/core/mcp-server.py"],
+      "args": ["/path/to/moonshine/core/mcp-server.py"],
       "transport": "stdio"
     }
   }
@@ -124,9 +124,9 @@ Add to your project's `.mcp.json` (or global `~/.claude/.mcp.json`):
 ```json
 {
   "mcpServers": {
-    "agent-memory": {
+    "moonshine": {
       "command": "python3",
-      "args": ["/path/to/agent-memory/core/mcp-server.py"],
+      "args": ["/path/to/moonshine/core/mcp-server.py"],
       "transport": "stdio"
     }
   }
@@ -167,9 +167,9 @@ Open Cursor Settings → MCP Servers, and add:
 
 ```json
 {
-  "agent-memory": {
+  "moonshine": {
     "command": "python3",
-    "args": ["/path/to/agent-memory/core/mcp-server.py"],
+    "args": ["/path/to/moonshine/core/mcp-server.py"],
     "transport": "stdio"
   }
 }
@@ -200,12 +200,12 @@ cp templates/MEMORY.md ~/your-project/MEMORY.md
 
 ### Generic (Any MCP-Compatible Tool)
 
-If your tool supports MCP (Model Context Protocol), you can connect agent-memory.
+If your tool supports MCP (Model Context Protocol), you can connect moonshine.
 
 **1. Register the MCP server** using whatever mechanism your tool provides:
 
 ```
-Command: python3 /path/to/agent-memory/core/mcp-server.py
+Command: python3 /path/to/moonshine/core/mcp-server.py
 Transport: stdio
 ```
 
@@ -234,7 +234,7 @@ Set up your tool to inject these files into the system prompt. The mechanism var
 ### Test the CLI
 
 ```bash
-cd agent-memory/core
+cd moonshine/core
 
 # Add a test memory
 ./mem add "Test memory" --type lesson --content "Verifying the setup works" --importance 3
@@ -275,7 +275,7 @@ The semantic search should return the SQLite memory even though "database choice
 ### Test the Observer
 
 ```bash
-cd agent-memory/observer
+cd moonshine/observer
 
 # Run against a test conversation (included in the repo)
 node observe.js test
@@ -329,7 +329,7 @@ Higher thresholds = fewer LLM calls = lower cost, but coarser observation granul
 
 | Variable | Purpose | Default |
 |----------|---------|---------|
-| `AGENT_MEMORY_DB` | Path to memories.db | `./core/memories.db` |
+| `MOONSHINE_DB` | Path to memories.db | `./core/memories.db` |
 | `AGENT_MEMORY_OBSERVER_DB` | Path to observations.db | `./observer/observations.db` |
 | `ANTHROPIC_API_KEY` | API key for observer LLM calls | (none — required for observer) |
 | `OLLAMA_URL` | Ollama API endpoint | `http://127.0.0.1:11434` |

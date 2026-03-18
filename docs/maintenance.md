@@ -191,7 +191,7 @@ For ongoing quality monitoring:
 
 ```bash
 # Weekly eval (cron example)
-0 5 * * 1 cd /path/to/agent-memory/evals && npx promptfoo eval --no-cache 2>&1 | mail -s "Memory Eval" you@example.com
+0 5 * * 1 cd /path/to/moonshine/evals && npx promptfoo eval --no-cache 2>&1 | mail -s "Memory Eval" you@example.com
 ```
 
 ---

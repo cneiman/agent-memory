@@ -2,8 +2,8 @@
 """
 mem.py — Long-term memory CLI with semantic search via Ollama embeddings.
 
-Part of agent-memory: a 3-tier memory system for AI agents.
-https://github.com/cneiman/agent-memory
+Part of moonshine: a 3-tier memory system for AI agents.
+https://github.com/cneiman/moonshine
 
 Usage:
     mem add "Title" --type lesson --content "..." [--tags x,y] [--importance 3]
@@ -23,7 +23,7 @@ Usage:
     mem neighbors ID [--depth N]
 
 Environment:
-    AGENT_MEMORY_DB       Path to memories.db (default: ./memories.db)
+    MOONSHINE_DB       Path to memories.db (default: ./memories.db)
     OLLAMA_URL            Ollama API URL (default: http://127.0.0.1:11434)
     EMBED_MODEL           Embedding model (default: nomic-embed-text)
 """
@@ -43,7 +43,7 @@ import requests
 
 # ============ Configuration ============
 
-DB_PATH = Path(os.environ.get("AGENT_MEMORY_DB", "./memories.db"))
+DB_PATH = Path(os.environ.get("MOONSHINE_DB", "./memories.db"))
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434")
 EMBED_MODEL = os.environ.get("EMBED_MODEL", "nomic-embed-text")
@@ -922,8 +922,8 @@ def cmd_neighbors(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="agent-memory CLI — manage long-term AI agent memory",
-        epilog="Environment: AGENT_MEMORY_DB (path to memories.db), OLLAMA_URL, EMBED_MODEL"
+        description="moonshine CLI — manage long-term AI agent memory",
+        epilog="Environment: MOONSHINE_DB (path to memories.db), OLLAMA_URL, EMBED_MODEL"
     )
     subparsers = parser.add_subparsers(dest='command', required=True)
 

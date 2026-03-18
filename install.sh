@@ -1,10 +1,10 @@
 #!/bin/bash
-# agent-memory installer
+# moonshine installer
 # Creates the database, installs dependencies, and prints next steps.
 
 set -e
 
-echo "🧠 Setting up agent-memory..."
+echo "🧠 Setting up moonshine..."
 
 # Create memories.db
 if [ ! -f memories.db ]; then
@@ -31,7 +31,7 @@ for f in MEMORY.md SOUL.md USER.md; do
 done
 
 echo ""
-echo "✅ agent-memory is ready!"
+echo "✅ moonshine is ready!"
 echo ""
 echo "Next steps:"
 echo "  1. Edit MEMORY.md, SOUL.md, and USER.md with your info"
@@ -41,4 +41,4 @@ echo "     OpenClaw:    cp -r adapters/openclaw/ ~/your-workspace/hooks/conversa
 echo "     Cursor:      See adapters/cursor/README.md"
 echo "  3. Start a conversation — the MCP server provides memory tools automatically"
 echo ""
-echo "📖 Full docs: https://github.com/cneiman/agent-memory"
+echo "📖 Full docs: https://github.com/cneiman/moonshine"

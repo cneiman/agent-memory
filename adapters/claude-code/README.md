@@ -1,6 +1,6 @@
 # Claude Code Adapter
 
-Connect agent-memory to [Claude Code](https://docs.anthropic.com/en/docs/claude-code) via MCP.
+Connect moonshine to [Claude Code](https://docs.anthropic.com/en/docs/claude-code) via MCP.
 
 ## Setup
 
@@ -9,16 +9,16 @@ Connect agent-memory to [Claude Code](https://docs.anthropic.com/en/docs/claude-
    cp adapters/claude-code/.mcp.json /path/to/your-project/.mcp.json
    ```
 
-2. Update paths in `.mcp.json` if agent-memory is not in your project root:
+2. Update paths in `.mcp.json` if moonshine is not in your project root:
    ```json
    {
      "mcpServers": {
-       "agent-memory": {
+       "moonshine": {
          "command": "python3",
-         "args": ["/absolute/path/to/agent-memory/core/mcp-server.py"],
+         "args": ["/absolute/path/to/moonshine/core/mcp-server.py"],
          "env": {
-           "AGENT_MEMORY_DB": "/absolute/path/to/memories.db",
-           "AGENT_MEMORY_WORKSPACE": "/absolute/path/to/workspace/"
+           "MOONSHINE_DB": "/absolute/path/to/memories.db",
+           "MOONSHINE_WORKSPACE": "/absolute/path/to/workspace/"
          }
        }
      }

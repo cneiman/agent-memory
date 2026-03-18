@@ -1,5 +1,5 @@
 {
-  "name": "agent-memory-observer",
+  "name": "moonshine-observer",
   "version": "1.0.0",
   "description": "Observer pipeline for automatic conversation compression",
   "private": true,

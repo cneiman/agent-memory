@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-agent-memory MCP Server — Exposes long-term memory as MCP tools.
+moonshine MCP Server — Exposes long-term memory as MCP tools.
 
 A Model Context Protocol server that provides 9 tools for AI agents to
 read, write, and search persistent memory via SQLite + embeddings + knowledge graph.
@@ -20,12 +20,12 @@ Transport: stdio (for Claude Code, OpenClaw, Cursor, or any MCP client)
 Protocol: MCP (Model Context Protocol) via JSON-RPC over stdin/stdout
 
 Environment:
-  AGENT_MEMORY_DB         Path to memories.db (default: ./memories.db)
-  AGENT_MEMORY_WORKSPACE  Path to workspace root (default: ./)
+  MOONSHINE_DB         Path to memories.db (default: ./memories.db)
+  MOONSHINE_WORKSPACE  Path to workspace root (default: ./)
   OLLAMA_URL              Ollama API URL (default: http://127.0.0.1:11434)
   EMBED_MODEL             Embedding model (default: nomic-embed-text)
 
-https://github.com/cneiman/agent-memory
+https://github.com/cneiman/moonshine
 """
 
 import json
@@ -41,9 +41,9 @@ import requests
 
 # ============ Config ============
 
-DB_PATH = Path(os.environ.get("AGENT_MEMORY_DB", "./memories.db"))
+DB_PATH = Path(os.environ.get("MOONSHINE_DB", "./memories.db"))
 SCHEMA_PATH = Path(__file__).parent / "schema.sql"
-WORKSPACE = Path(os.environ.get("AGENT_MEMORY_WORKSPACE", "./"))
+WORKSPACE = Path(os.environ.get("MOONSHINE_WORKSPACE", "./"))
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434")
 EMBED_MODEL = os.environ.get("EMBED_MODEL", "nomic-embed-text")
 
@@ -859,7 +859,7 @@ TOOLS = [
 ]
 
 SERVER_INFO = {
-    "name": "agent-memory",
+    "name": "moonshine",
     "version": "1.0.0"
 }
 

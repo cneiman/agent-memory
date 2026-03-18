@@ -1,4 +1,4 @@
-# Contributing to agent-memory
+# Contributing to moonshine
 
 Thanks for considering a contribution. Here's how the project is structured and how to add to it.
 
@@ -7,7 +7,7 @@ Thanks for considering a contribution. Here's how the project is structured and 
 ## Project Layout
 
 ```
-agent-memory/
+moonshine/
 ├── core/               # Python — MCP server, CLI, schema
 ├── observer/           # Node.js — conversation compression pipeline
 ├── context/            # Shell — dynamic context generation
@@ -32,7 +32,7 @@ agent-memory/
 
 ## Adding a New Adapter
 
-Adapters are the most useful contribution. Each adapter connects agent-memory to a platform's lifecycle events.
+Adapters are the most useful contribution. Each adapter connects moonshine to a platform's lifecycle events.
 
 ### What an Adapter Needs
 
