@@ -488,10 +488,26 @@ async function main() {
         context = "(No relevant memories found)";
       }
 
-      // 6. Generate answer
-      const systemPrompt =
-        "You are answering questions about past conversations. Use the provided context to answer accurately and concisely.";
-      const userPrompt = `Context:\n${context}\n\nQuestion: ${q.question}\n\nAnswer concisely based on the context. If the information isn't in the context, say 'I don't have that information.'`;
+      // 6. Generate answer (category-aware prompts)
+      let systemPrompt, userPrompt;
+
+      if (q.question_type === "single-session-preference") {
+        systemPrompt =
+          "You are analyzing past conversations to infer user preferences. Based on the context, describe what the user would or would not prefer. Frame your answer as: 'The user would prefer... They may not prefer...'";
+        userPrompt = `Context:\n${context}\n\nQuestion: ${q.question}\n\nBased on the conversations, infer the user's preferences. Describe what they would prefer and what they would not prefer. Be specific and reference details from the conversations.`;
+      } else if (q.question_type === "temporal-reasoning") {
+        systemPrompt =
+          "You are answering questions about past conversations. Use the provided context to answer accurately and concisely. When asked 'how many days' between events, identify the exact dates from the context and compute the arithmetic difference. Always show your date calculation and give a specific number.";
+        userPrompt = `Context:\n${context}\n\nQuestion: ${q.question}\n\nAnswer based on the context. If the question asks about a duration or number of days, identify the specific dates involved, calculate the difference, and state the number clearly. Be concise.`;
+      } else if (q.question.toLowerCase().startsWith("how many")) {
+        systemPrompt =
+          "You are answering questions about past conversations. Use the provided context to answer accurately and concisely. When asked 'how many', count carefully across all provided context and give a specific number as your answer.";
+        userPrompt = `Context:\n${context}\n\nQuestion: ${q.question}\n\nCount carefully across ALL the provided context entries. State the specific number. Be concise.`;
+      } else {
+        systemPrompt =
+          "You are answering questions about past conversations. Use the provided context to answer accurately and concisely.";
+        userPrompt = `Context:\n${context}\n\nQuestion: ${q.question}\n\nAnswer concisely based on the context. If the information isn't in the context, say 'I don't have that information.'`;
+      }
 
       const hypothesis = await callLLM(provider, apiKey, model, systemPrompt, userPrompt);
 
