@@ -47,7 +47,7 @@ The key insight: **the model shouldn't have to choose to remember things.** Ever
 
 ## Built From Real Usage
 
-This isn't a weekend prototype. It was extracted from a system that's been running daily for 7+ weeks, powering an agent handling engineering work, team coordination, personal tasks, and project management. Hundreds of memories, hundreds of entities, thousands of conversation turns — compressed, indexed, and retrievable.
+This isn't a weekend prototype. It was extracted from a system that's been running daily for 7 weeks, powering an agent handling engineering work, team coordination, personal tasks, and project management. Hundreds of memories, hundreds of entities, thousands of conversation turns — compressed, indexed, and retrievable.
 
 The architecture evolved through actual failure modes: context windows overflowing, keyword search missing semantic connections, important facts falling through the cracks because the model didn't write them down. Each component exists because something broke without it.
 
