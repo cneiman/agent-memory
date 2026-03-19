@@ -1,0 +1,15 @@
+{
+  "name": "longmemeval",
+  "version": "1.0.0",
+  "description": "LongMemEval benchmark harness for moonshine memory system",
+  "type": "module",
+  "scripts": {
+    "test": "node harness.js --dataset oracle --limit 5",
+    "oracle": "node harness.js --dataset oracle",
+    "full": "node harness.js --dataset s",
+    "evaluate": "node evaluate.js hypotheses.jsonl --judge anthropic"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0"
+  }
+}

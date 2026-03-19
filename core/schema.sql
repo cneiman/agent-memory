@@ -1,0 +1,1 @@
+/Users/goober/goober-brain/memory/schema.sql
